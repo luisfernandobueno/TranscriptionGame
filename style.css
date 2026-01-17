@@ -45,24 +45,23 @@ body {
 ========================= */
 
 .center {
+  flex: 1; /* 🔥 fills remaining screen */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; /* desktop centering */
   padding: 16px;
   box-sizing: border-box;
 }
 
 
 /* =========================
-   TEXT DISPLAY (ONLY SCROLL)
+   TEXT DISPLAY (FIXED HEIGHT)
 ========================= */
 
 #textDisplay {
-  flex: 1;
+  flex: 1; /* 🔥 stable height */
   width: 100%;
   max-width: 100%;
-  height: 100%;
+
   font-size: clamp(16px, 4vw, 20px);
   line-height: 1.6;
 
@@ -70,7 +69,7 @@ body {
   -webkit-overflow-scrolling: touch;
 
   padding: 8px;
-  padding-bottom: 140px; /* 🔥 space for input */
+  padding-bottom: 160px; /* 🔥 space for fixed input */
 
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
@@ -93,15 +92,13 @@ body {
   color: #e74c3c;
 }
 
-
-
 .word-flash {
   color: #2ecc71;
 }
 
 .word-error {
   color: #e74c3c;
-background-color: rgba(204, 46, 46, 0.12);
+  background-color: rgba(204, 46, 46, 0.12);
   border-radius: 6px;
   padding: 2px 4px;
   font-weight: 500;
@@ -117,7 +114,7 @@ background-color: rgba(204, 46, 46, 0.12);
   border-radius: 6px;
   padding: 2px 4px;
   font-weight: 500;
-  color: #3ca3e7
+  color: #3ca3e7;
 }
 
 
@@ -126,8 +123,7 @@ background-color: rgba(204, 46, 46, 0.12);
 ========================= */
 
 input {
-  width: 100%;/* 
-  max-width: 420px; */
+  width: 100%;
   padding: 14px 18px;
   font-size: clamp(16px, 4vw, 18px);
 
@@ -199,20 +195,13 @@ button:active {
     padding: 8px;
   }
 
-  .center {
-    justify-content: flex-start; /* 🔥 natural scroll */
-  }
-
-  #textDisplay {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* 🔥 Sticky input instead of fixed */
+  /* 🔥 FIXED INPUT (NO LAYOUT SHIFT) */
   input {
-    position: sticky;
+    position: fixed;
     bottom: 0;
-    background: #f5f5f5;
+    left: 0;
+    right: 0;
     z-index: 10;
+    background: #f5f5f5;
   }
 }
