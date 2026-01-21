@@ -197,6 +197,7 @@ button:active {
   .game-container {
     width: 100%;
     padding: 8px;
+    font-size:  12px;
   }
 
 }
