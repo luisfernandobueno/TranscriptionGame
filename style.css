@@ -16,7 +16,7 @@ body {
 ========================= */
 
 .game-container {
-  height: 100svh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 8px;
